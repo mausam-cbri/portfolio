@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Scientific portfolio of Dr. Ajay Chourasia — earthquake engineering, resilient infrastructure and advanced construction technologies." />
+  <title>Dr. Ajay Chourasia | Scientist Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="profile-block">
+        <div class="profile-photo-wrap">
+          <img id="profilePhoto" class="profile-photo" src="assets/profile.png" alt="Portrait of Dr. Ajay Chourasia" />
+        </div>
+        <p class="eyebrow">SCIENTIST PORTFOLIO</p>
+        <h1 id="scientistName">Dr. Ajay Chourasia</h1>
+        <p id="designation" class="designation">Chief Scientist · CSIR-CBRI</p>
+        <p id="affiliation" class="affiliation">CSIR-Central Building Research Institute, Roorkee, India</p>
+      </div>
+
+      <nav class="side-nav" aria-label="Portfolio navigation">
+       <b> <a href="#overview">Overview</a></b>
+        <b><a href="#research">Research</a></b>
+       <b> <a href="#projects">Projects</a></b>
+       <b> <a href="#impact">Impact</a></b>
+        <b><a href="#publications">Publications</a></b>
+       <b> <a href="#awards">Awards</a></b>
+       <b><a href="#education">Education</a></b>
+        <b><a href="#contact">Contact</a></b>
+      </nav>
+
+      <div class="side-stats" id="sideStats"></div>
+
+      <div class="sidebar-footer">
+        <span>Scientific portfolio</span>
+        <span>•</span>
+        <span id="year"></span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="status-dot"></span>
+          <span>Research · Engineering · Public Impact</span>
+        </div>
+        <a class="outline-link" href="#contact">Connect</a>
+      </header>
+
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="section-kicker">RESEARCH PROFILE</p>
+          <h2>Building safer, more resilient and future-ready infrastructure.</h2>
+          <p class="hero-lead" id="heroLead"></p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#projects">Explore work <span>→</span></a>
+            <a class="text-btn" href="#publications">View publications</a>
+          </div>
+        </div>
+
+        <div class="hero-metrics" id="heroMetrics"></div>
+      </section>
+
+      <section class="showcase" aria-label="Research image slideshow">
+        <div class="showcase-header">
+          <div>
+            <p class="section-kicker">RESEARCH IN PRACTICE</p>
+            <h3>Selected moments from the laboratory, field and built environment.</h3>
+          </div>
+          <div class="slider-controls">
+            <button id="prevSlide" class="icon-btn" aria-label="Previous slide">←</button>
+            <span id="slideCounter">01 / 01</span>
+            <button id="nextSlide" class="icon-btn" aria-label="Next slide">→</button>
+          </div>
+        </div>
+<div class="slider" id="slider">
+
+  <div class="slide-placeholder" id="slidePlaceholder">
+    <span>Add research images in <code>assets/slides/</code></span>
+  </div>
+
+  <img
+    id="slideImage"
+    class="slide-image"
+    alt="Research portfolio image"
+  />
+
+  <div class="slide-caption">
+    <span id="slideLabel">Research showcase</span>
+
+    <span class="slide-progress">
+      <i id="slideProgress"></i>
+    </span>
+  </div>
+
+</div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading">
+          <div><p class="section-kicker">RESEARCH</p><h3>Areas of specialization</h3></div>
+          <!-- <p>Core domains represented in the scientist's research, development and innovation portfolio.</p> -->
+        </div>
+        <div class="research-grid" id="researchGrid"></div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <div><p class="section-kicker">PROJECTS</p><h3>Selected research & development work</h3></div>
+          <!-- <p>International, mission-mode, R&amp;D and sponsored projects drawn from the supplied project record.</p> -->
+        </div>
+        <div class="filter-row" id="projectFilters"></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="section impact-section" id="impact">
+        <div class="section-heading">
+          <div><p class="section-kicker">IMPACT</p><h3>From research to societal outcomes</h3></div>
+          <!-- <p>Selected scale indicators and contribution highlights from the supplied CV and contribution statement.</p> -->
+        </div>
+        <div class="impact-grid" id="impactGrid"></div>
+      </section>
+
+      <section class="section" id="publications">
+        <div class="section-heading">
+          <div><p class="section-kicker">KNOWLEDGE</p><h3>Selected publications & books</h3></div>
+          <!-- <p>The complete publication record remains in the supplied CV annex; this interface foregrounds recent and representative work.</p> -->
+        </div>
+        <div class="publication-layout">
+          <div class="publication-list" id="publicationList"></div>
+          <aside class="publication-aside">
+            <div class="aside-card">
+              <span class="mini-label">KNOWLEDGE OUTPUT</span>
+              <strong id="pubCount">200+</strong>
+              <p>research publications and related knowledge outputs are reported in the supplied CV.</p>
+            </div>
+            <div class="aside-card">
+              <span class="mini-label">BOOKS</span>
+              <strong id="bookCount">20</strong>
+              <p>books and major authored/edited volumes are reported in the supplied CV.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section split-section" id="awards">
+        <div>
+          <p class="section-kicker">RECOGNITION</p>
+          <h3>Awards & professional recognition</h3>
+          <div class="award-list" id="awardList"></div>
+        </div>
+        <div id="patentCard"></div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-heading">
+          <div><p class="section-kicker">BACKGROUND</p><h3>Education & professional journey</h3></div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div>
+          <p class="section-kicker">CONTACT</p>
+          <h3>Scientific collaboration, technical consultation & knowledge exchange.</h3>
+          <p id="contactSummary"></p>
+        </div>
+        <div class="contact-card" id="contactCard"></div>
+      </section>
+
+      <footer class="footer">
+        <!-- <span>Designed as a neutral scientific portfolio platform.</span>
+        <span>Content source: supplied professional records.</span> -->
+      </footer>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
