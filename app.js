@@ -68,49 +68,162 @@
   ].map(([label, value]) => `<div class="contact-line"><small>${label}</small>${value}</div>`).join('');
 
   // Slideshow: add images only in data.js; no other code changes are required.
-  const slides = data.slideshowImages || [];
-  const img = $('slideImage');
-  const placeholder = $('slidePlaceholder');
-  const label = $('slideLabel');
-  const counter = $('slideCounter');
-  const progress = $('slideProgress');
-  let index = 0;
-  let timer = null;
-  const interval =  1250;
+ // =========================
+// THREE-IMAGE RESEARCH CAROUSEL
+// =========================
 
-  function showSlide(nextIndex) {
-    if (!slides.length) return;
-    index = (nextIndex + slides.length) % slides.length;
-    const slide = slides[index];
-    img.classList.remove('active');
-    img.onload = () => {
-      placeholder.classList.add('hidden');
-      img.classList.add('active');
-    };
-    img.onerror = () => {
-      placeholder.classList.remove('hidden');
-      img.classList.remove('active');
-    };
+const slides = data.slideshowImages || [];
+
+const slider = $('slider');
+const track = $('sliderTrack');
+const label = $('slideLabel');
+const counter = $('slideCounter');
+const progress = $('slideProgress');
+
+let index = 0;
+let timer = null;
+
+const interval = 3000;
+
+
+// Create the three visible slides
+function renderCarousel() {
+
+  if (!slides.length) return;
+
+  track.innerHTML = '';
+
+  const total = slides.length;
+
+  const previousIndex = (index - 1 + total) % total;
+  const currentIndex = index;
+  const nextIndex = (index + 1) % total;
+
+  const visibleSlides = [
+    {
+      index: previousIndex,
+      className: 'carousel-slide prev-slide'
+    },
+    {
+      index: currentIndex,
+      className: 'carousel-slide current-slide'
+    },
+    {
+      index: nextIndex,
+      className: 'carousel-slide next-slide'
+    }
+  ];
+
+  visibleSlides.forEach(item => {
+
+    const slide = slides[item.index];
+
+    const frame = document.createElement('div');
+    frame.className = item.className;
+
+    const img = document.createElement('img');
+
     img.src = slide.src;
     img.alt = slide.label || 'Research portfolio image';
-    label.textContent = slide.label || 'Research showcase';
-    counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
-    progress.style.transition = 'none';
-    progress.style.width = '0%';
+
+    frame.appendChild(img);
+    track.appendChild(frame);
+
+  });
+
+  label.textContent =
+    slides[currentIndex].label || 'Research showcase';
+
+  counter.textContent =
+    `${String(currentIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+
+  restartProgress();
+}
+
+
+// Animate progress bar
+function restartProgress() {
+
+  progress.style.transition = 'none';
+  progress.style.width = '0%';
+
+  requestAnimationFrame(() => {
+
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        progress.style.transition = `width ${interval}ms linear`;
-        progress.style.width = '100%';
-      });
+
+      progress.style.transition =
+        `width ${interval}ms linear`;
+
+      progress.style.width = '100%';
+
     });
-  }
-  function restartTimer() {
-    clearInterval(timer);
-    timer = setInterval(() => showSlide(index + 1), interval);
-  }
-  $('prevSlide').addEventListener('click', () => { showSlide(index - 1); restartTimer(); });
-  $('nextSlide').addEventListener('click', () => { showSlide(index + 1); restartTimer(); });
-  $('slider').addEventListener('mouseenter', () => clearInterval(timer));
-  $('slider').addEventListener('mouseleave', restartTimer);
-  showSlide(0); restartTimer();
+
+  });
+
+}
+
+
+// Change slide
+function showSlide(nextIndex) {
+
+  if (!slides.length) return;
+
+  index = (nextIndex + slides.length) % slides.length;
+
+  renderCarousel();
+
+}
+
+
+// Restart automatic slideshow
+function restartTimer() {
+
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+
+    showSlide(index + 1);
+
+  }, interval);
+
+}
+
+
+// Previous button
+$('prevSlide').addEventListener('click', () => {
+
+  showSlide(index - 1);
+  restartTimer();
+
+});
+
+
+// Next button
+$('nextSlide').addEventListener('click', () => {
+
+  showSlide(index + 1);
+  restartTimer();
+
+});
+
+
+// Pause while mouse is over carousel
+slider.addEventListener('mouseenter', () => {
+
+  clearInterval(timer);
+
+});
+
+
+// Resume when mouse leaves
+slider.addEventListener('mouseleave', () => {
+
+  restartTimer();
+
+});
+
+
+// Initial render
+renderCarousel();
+restartTimer();
 })();

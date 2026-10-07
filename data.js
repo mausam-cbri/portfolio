@@ -30,15 +30,15 @@ const PORTFOLIO = {
   },
 
   slideshowImages: [
-    {src:"assets/slides/badrinath.png", label: "badrinath" },
-    {src:"assets/slides/education_nepal.png", label: "Nepal education sector" },
-    {src:"assets/slides/badrinath2.png", label: "badrinath" },
-    {src:"assets/slides/health_nepal.png", label: "Nepal health sector" },
-    {src:"assets/slides/health_nepal2.png", label:"Nepal health sector" },
-    {src:"assets/slides/badrinath3.png", label: "badrinath" },
-    {src:"assets/slides/kedarnath.png", label: "kedarnath project" },
-     {src:"assets/slides/onsite.png", label: "onsite team coordination" },
-    {src:"assets/slides/neetf.png", label: "National Earthquake Engineering Test Facility" }
+    {src:"assets/slides/pic1.png", label: "" },
+    {src:"assets/slides/pic2.png", label: "" },
+    {src:"assets/slides/pic3.png", label: "" },
+    {src:"assets/slides/pic4.png", label: "" },
+    {src:"assets/slides/pic5.png", label:"" },
+    {src:"assets/slides/pic6.png", label: "" },
+    {src:"assets/slides/pic7.png", label: "" },
+    //  {src:"assets/slides/onsite.png", label: "onsite team coordination" },
+    // {src:"assets/slides/neetf.png", label: "National Earthquake Engineering Test Facility" }
    
     // Add your images here. Keep the format exactly like this:
     // { src: "assets/slides/laboratory-01.jpg", label: "National Earthquake Engineering Test Facility" },

@@ -299,7 +299,7 @@ h1 {
 
 .metric span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 17px;
   display: block;
   margin-top: 5px;
 }
@@ -353,126 +353,267 @@ h1 {
   transform: translateY(-1px);
 }
 
-
 /* =========================================================
-   SLIDESHOW / CAROUSEL
+   THREE-IMAGE RESEARCH CAROUSEL
    ========================================================= */
 
 .slider {
   position: relative;
   width: 100%;
-  height: min(52vh, 520px);
-  min-height: 360px;
+
+  /*
+    16:9 presentation area.
+    This matches the recommended 1600x900 images.
+  */
+  aspect-ratio: 16 / 9;
+
+  min-height: 420px;
+  max-height: 620px;
+
   overflow: hidden;
+
   border-radius: 22px;
-  background: #dfe4e0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #eef2ef 0%,
+      #dfe5e1 100%
+    );
+
   box-shadow: var(--shadow);
 }
 
 
-/* Three-image horizontal track */
+/* -----------------------------------------
+   CAROUSEL TRACK
+   ----------------------------------------- */
 
 .slider-track {
+
   position: absolute;
+
   inset: 0;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  gap: 18px;
-  padding: 0 5%;
+
+  gap: 22px;
+
+  padding: 0 3%;
+
 }
 
 
-/* Individual slide frame */
+/* -----------------------------------------
+   ALL SLIDE CARDS
+   ----------------------------------------- */
 
 .carousel-slide {
+
+  position: relative;
+
   flex: 0 0 72%;
+
   height: 88%;
+
   overflow: hidden;
+
   border-radius: 20px;
+
+  background: #dfe4e0;
+
+  box-shadow: 0 12px 35px rgba(28, 43, 37, .12);
+
   transition:
-    transform .6s ease,
-    opacity .6s ease,
-    filter .6s ease;
+    transform .75s cubic-bezier(.22, .61, .36, 1),
+    opacity .75s ease,
+    filter .75s ease,
+    box-shadow .75s ease;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+
 }
+
+
+/* -----------------------------------------
+   IMAGE
+   ----------------------------------------- */
 
 .carousel-slide img {
+
   width: 100%;
   height: 100%;
+
   display: block;
-  object-fit: cover;
+
+  /*
+    IMPORTANT:
+    contain = NEVER crop the photograph.
+  */
+  object-fit: contain;
+
+  object-position: center;
+
+  background: #e5e9e6;
+
 }
 
 
-/* Main / current image */
+/* -----------------------------------------
+   CURRENT / CENTER IMAGE
+   ----------------------------------------- */
 
 .current-slide {
+
+  flex-basis: 72%;
+
+  height: 88%;
+
   transform: scale(1);
+
   opacity: 1;
+
   filter: blur(0);
-  z-index: 2;
+
+  z-index: 3;
+
+  box-shadow:
+    0 22px 55px rgba(28, 43, 37, .18);
+
 }
 
 
-/* Previous and next images */
+/* -----------------------------------------
+   PREVIOUS + NEXT
+   ----------------------------------------- */
 
 .prev-slide,
 .next-slide {
-  flex: 0 0 18%;
-  height: 72%;
+
+  flex-basis: 20%;
+
+  height: 70%;
+
   opacity: .42;
-  filter: blur(5px);
-  transform: scale(.88);
+
+  filter:
+    blur(5px)
+    saturate(.75);
+
+  transform: scale(.82);
+
   z-index: 1;
+
 }
 
 
-/* Placeholder */
+/* -----------------------------------------
+   PREVIOUS IMAGE
+   ----------------------------------------- */
 
-.slide-placeholder {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: #67736d;
-  background: linear-gradient(120deg, #e6ebe7, #d6ddd8);
-  font-size: 13px;
-  z-index: 5;
-}
+.prev-slide {
 
-.slide-placeholder.hidden {
-  display: none;
+  transform:
+    translateX(-2%)
+    scale(.82);
+
 }
 
 
-/* Caption */
+/* -----------------------------------------
+   NEXT IMAGE
+   ----------------------------------------- */
+
+.next-slide {
+
+  transform:
+    translateX(2%)
+    scale(.82);
+
+}
+
+
+/* -----------------------------------------
+   HOVER EFFECT
+   ----------------------------------------- */
+
+.slider:hover .prev-slide,
+.slider:hover .next-slide {
+
+  opacity: .52;
+
+}
+
+
+/* -----------------------------------------
+   CAPTION
+   ----------------------------------------- */
 
 .slide-caption {
+
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
+
+  left: 28px;
+  right: 28px;
+  bottom: 22px;
+
   display: flex;
+
   align-items: center;
-  gap: 15px;
-  z-index: 6;
+
+  gap: 18px;
+
+  z-index: 10;
+
   color: #fff;
+
   font-size: 11px;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, .35);
+
+  text-shadow:
+    0 1px 12px rgba(0, 0, 0, .5);
+
 }
+
+
+/* -----------------------------------------
+   PROGRESS BAR
+   ----------------------------------------- */
 
 .slide-progress {
+
   height: 2px;
+
   flex: 1;
-  background: rgba(255, 255, 255, .35);
+
+  background:
+    rgba(255, 255, 255, .35);
+
   overflow: hidden;
+
+  border-radius: 999px;
+
 }
 
+
 .slide-progress i {
+
   display: block;
+
   height: 100%;
+
   width: 0;
+
   background: #fff;
+
+  border-radius: 999px;
+
 }
 
 
@@ -1028,25 +1169,32 @@ h1 {
     min-height: 340px;
     height: min(52vh, 500px);
   }
+  .slider {
+  aspect-ratio: 16 / 9;
+  min-height: 320px;
+  max-height: none;
+}
 
-  /* Tablet carousel */
-  .slider-track {
-    gap: 12px;
-    padding: 0 3%;
-  }
+.slider-track {
+  gap: 12px;
+  padding: 0 2%;
+}
 
-  .carousel-slide {
-    flex-basis: 78%;
-    height: 88%;
-  }
+.carousel-slide {
+  border-radius: 18px;
+}
 
-  .prev-slide,
-  .next-slide {
-    flex-basis: 13%;
-    height: 72%;
-    opacity: .35;
-    filter: blur(4px);
-  }
+.current-slide {
+  flex-basis: 78%;
+  height: 86%;
+}
+
+.prev-slide,
+.next-slide {
+  flex-basis: 17%;
+  height: 68%;
+}
+ 
 }
 
 
@@ -1096,24 +1244,39 @@ h1 {
   }
 
   /* Mobile carousel */
-  .slider-track {
-    gap: 10px;
-    padding: 0 3%;
-  }
+  .slider {
+  aspect-ratio: 16 / 10;
+  min-height: 260px;
+  height: auto;
+  border-radius: 18px;
+}
 
-  .carousel-slide {
-    flex-basis: 82%;
-    height: 86%;
-    border-radius: 17px;
-  }
+.slider-track {
+  gap: 8px;
+}
 
-  .prev-slide,
-  .next-slide {
-    flex-basis: 10%;
-    height: 70%;
-    opacity: .32;
-    filter: blur(4px);
-  }
+.carousel-slide {
+  border-radius: 16px;
+}
+
+.current-slide {
+  flex-basis: 82%;
+  height: 82%;
+}
+
+.prev-slide,
+.next-slide {
+  flex-basis: 12%;
+  height: 65%;
+  filter: blur(3px);
+  opacity: .30;
+}
+
+.slide-caption {
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+}
 
   .slide-caption {
     left: 14px;
