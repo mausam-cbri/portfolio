@@ -37,6 +37,12 @@ const PORTFOLIO = {
     {src:"assets/slides/pic5.png", label:"" },
     {src:"assets/slides/pic6.png", label: "" },
     {src:"assets/slides/pic7.png", label: "" },
+    {src:"assets/slides/nepal.png", label: "" },
+    {src:"assets/slides/selfie.png", label: "" },
+    {src:"assets/slides/library.jpg", label: "" },
+    {src:"assets/slides/nepal1.png", label: "" },
+    {src:"assets/slides/library1.jpg", label: "" },
+
     //  {src:"assets/slides/onsite.png", label: "onsite team coordination" },
     // {src:"assets/slides/neetf.png", label: "National Earthquake Engineering Test Facility" }
    
