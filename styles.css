@@ -10,6 +10,9 @@
   --dark: #1d2824;
   --shadow: 0 18px 50px rgba(28, 43, 37, .08);
   --radius: 20px;
+    --link-accent: #2f6fed;
+  --extras-border: rgba(127, 127, 127, 0.28);
+  --extras-soft: rgba(127, 127, 127, 0.08);
 }
 
 * {
@@ -756,7 +759,6 @@ h1 {
 /* =========================
    IMPACT
    ========================= */
-
 .impact-section {
   border-top: 1px solid var(--line);
 }
@@ -764,34 +766,53 @@ h1 {
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 
 .impact-card {
-  background: var(--dark);
-  color: #fff;
-  border-radius: 16px;
-  padding: 21px;
-  min-height: 150px;
+  background: #E4EDE6;
+  color: #20382D;
+  border: 1px solid #D5E2D8;
+  border-radius: 18px;
+  padding: 24px;
+  min-height: 170px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
+/* Large impact numbers */
 .impact-card strong {
   font-size: 34px;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
   display: block;
+  color: #244C38;
+  line-height: 1.2;
 }
 
+/* Card headings */
 .impact-card h4 {
-  margin: 10px 0 4px;
+  margin: 14px 0 5px;
   font-size: 13px;
+  color: #20382D;
 }
 
+/* Supporting descriptions */
 .impact-card p {
-  color: #b9c4bf;
-  font-size: 10px;
+  color: #53685B;
+  font-size: 11px;
+  line-height: 1.7;
   margin: 0;
 }
 
+/* Subtle hover effect */
+.impact-card:hover {
+  background: #EDF3EE;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(35, 67, 48, 0.09);
+}
 
 /* =========================
    PUBLICATIONS
@@ -1288,4 +1309,164 @@ h1 {
     flex-direction: column;
     gap: 5px;
   }
+}
+
+/* Sidebar navigation links were previously wrapped in <b> */
+.side-nav a { font-weight: 700; }
+
+/* ---------- clickable titles ---------- */
+a.title-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--link-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+a.title-link::after {
+  content: " \2197";            /* ↗ */
+  font-size: 0.75em;
+  color: var(--link-accent);
+}
+a.title-link:hover,
+a.title-link:focus-visible {
+  color: var(--link-accent);
+  text-decoration-color: currentColor;
+}
+a.title-link:focus-visible { outline: 2px solid var(--link-accent); outline-offset: 3px; border-radius: 3px; }
+
+/* cards that have a link get a subtle accent so visitors know they are openable */
+.pub-card.has-link,
+.project-card.has-link,
+.highlight-card.has-link,
+.impact-card.has-link { border-left: 3px solid var(--link-accent); }
+
+/* ---------- status badges ---------- */
+.status-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  vertical-align: middle;
+}
+.muted { opacity: 0.65; font-size: 0.85em; }
+
+/* ---------- search + filters + show more ---------- */
+.browse-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 4px 0 14px;
+}
+.search-input {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 11px 16px;
+  border: 1px solid var(--extras-border);
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+.search-input:focus { outline: 2px solid var(--link-accent); outline-offset: 1px; }
+.result-count { font-size: 0.85rem; opacity: 0.7; white-space: nowrap; }
+
+.filter-btn small { opacity: 0.6; margin-left: 4px; font-size: 0.78em; }
+.filter-row { flex-wrap: wrap; }
+
+.load-more-row { display: flex; justify-content: center; margin-top: 22px; }
+.load-more-row[hidden], .more-btn[hidden] { display: none; }
+.more-btn {
+  padding: 11px 26px;
+  border: 1px solid var(--extras-border);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.more-btn:hover { border-color: var(--link-accent); color: var(--link-accent); }
+.empty-state { opacity: 0.7; padding: 18px 4px; }
+
+/* ---------- contributions (Annexure III) ---------- */
+.contribution-intro blockquote {
+  margin: 0 0 26px;
+  padding: 18px 22px;
+  border-left: 4px solid var(--link-accent);
+  background: var(--extras-soft);
+  border-radius: 0 14px 14px 0;
+  line-height: 1.65;
+}
+.contribution-intro cite { display: block; margin-top: 10px; font-size: 0.85rem; opacity: 0.7; font-style: normal; }
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.highlight-card {
+  padding: 22px;
+  border: 1px solid var(--extras-border);
+  border-radius: 18px;
+}
+.highlight-card h4 { margin: 8px 0 10px; line-height: 1.35; }
+.hl-summary { margin: 0 0 12px; line-height: 1.6; opacity: 0.85; }
+.hl-toggle {
+  padding: 6px 14px;
+  border: 1px solid var(--extras-border);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hl-toggle:hover { border-color: var(--link-accent); color: var(--link-accent); }
+.hl-body { margin-top: 14px; line-height: 1.65; font-size: 0.93rem; }
+.hl-body[hidden] { display: none; }
+.hl-body p { margin: 0 0 10px; }
+.hl-body ul { margin: 0 0 10px; padding-left: 20px; }
+.hl-body li { margin-bottom: 6px; }
+
+.subheading { margin: 42px 0 14px; font-size: 1.15rem; }
+.sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+.sector-card { border: 1px solid var(--extras-border); border-radius: 16px; padding: 4px 20px; }
+.sector-card summary {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 0; cursor: pointer; font-weight: 700; list-style: none;
+}
+.sector-card summary::-webkit-details-marker { display: none; }
+.sector-card summary small { opacity: 0.6; font-weight: 600; }
+.sector-card[open] summary { border-bottom: 1px solid var(--extras-border); margin-bottom: 12px; }
+.sector-card ul { margin: 0 0 14px; padding-left: 18px; line-height: 1.6; font-size: 0.92rem; }
+.sector-card li { margin-bottom: 8px; }
+.contribution-closing { margin-top: 26px; font-style: italic; opacity: 0.8; line-height: 1.6; }
+
+/* ---------- training strip (impact section) ---------- */
+.training-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+.training-item { padding: 16px 18px; border: 1px dashed var(--extras-border); border-radius: 14px; }
+.training-item strong { display: block; font-size: 1.5rem; }
+.training-item span { font-size: 0.82rem; opacity: 0.75; }
+
+/* ---------- patents / technology transfer boxes ---------- */
+#patentCard .patent-box + .patent-box { margin-top: 22px; }
+#patentCard li { margin-bottom: 10px; }
+
+@media (max-width: 640px) {
+  .highlight-grid, .sector-grid { grid-template-columns: 1fr; }
 }

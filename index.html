@@ -6,6 +6,8 @@
   <meta name="description" content="Scientific portfolio of Dr. Ajay Chourasia — earthquake engineering, resilient infrastructure and advanced construction technologies." />
   <title>Dr. Ajay Chourasia | Scientist Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- NEW: styles for links, search boxes, badges and the new sections -->
+  <link rel="stylesheet" href="extras.css" />
 </head>
 <body>
   <div class="site-shell">
@@ -21,14 +23,15 @@
       </div>
 
       <nav class="side-nav" aria-label="Portfolio navigation">
-       <b> <a href="#overview">Overview</a></b>
-        <b><a href="#research">Research</a></b>
-       <b> <a href="#projects">Projects</a></b>
-       <b> <a href="#impact">Impact</a></b>
-        <b><a href="#publications">Publications</a></b>
-       <b> <a href="#awards">Awards</a></b>
-       <b><a href="#education">Education</a></b>
-        <b><a href="#contact">Contact</a></b>
+        <a href="#overview">Overview</a>
+        <a href="#research">Research</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#projects">Projects</a>
+        <a href="#impact">Impact</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="side-stats" id="sideStats"></div>
@@ -75,63 +78,86 @@
             <button id="nextSlide" class="icon-btn" aria-label="Next slide">→</button>
           </div>
         </div>
-<div class="slider" id="slider">
+        <div class="slider" id="slider">
 
-  <div class="slider-track" id="sliderTrack"></div>
+          <div class="slider-track" id="sliderTrack"></div>
 
-  <div class="slide-caption">
-    <span id="slideLabel">Research showcase</span>
+          <div class="slide-caption">
+            <span id="slideLabel">Research showcase</span>
 
-    <span class="slide-progress">
-      <i id="slideProgress"></i>
-    </span>
-  </div>
+            <span class="slide-progress">
+              <i id="slideProgress"></i>
+            </span>
+          </div>
 
-</div>
+        </div>
       </section>
 
       <section class="section" id="research">
         <div class="section-heading">
           <div><p class="section-kicker">RESEARCH</p><h3>Areas of specialization</h3></div>
-          <!-- <p>Core domains represented in the scientist's research, development and innovation portfolio.</p> -->
         </div>
         <div class="research-grid" id="researchGrid"></div>
       </section>
 
+      <!-- NEW: Annexure III – Highlights of contribution -->
+      <section class="section" id="contributions">
+        <div class="section-heading">
+          <div><p class="section-kicker">CONTRIBUTIONS</p><h3>Highlights of contribution</h3></div>
+        </div>
+        <div class="contribution-intro" id="contributionIntro"></div>
+        <div class="highlight-grid" id="highlightGrid"></div>
+
+        <h4 class="subheading">Sector-wise contribution</h4>
+        <div class="sector-grid" id="sectorGrid"></div>
+        <p class="contribution-closing" id="contributionClosing"></p>
+      </section>
+
       <section class="section" id="projects">
         <div class="section-heading">
-          <div><p class="section-kicker">PROJECTS</p><h3>Selected research & development work</h3></div>
-          <!-- <p>International, mission-mode, R&amp;D and sponsored projects drawn from the supplied project record.</p> -->
+          <div><p class="section-kicker">PROJECTS</p><h3>Research &amp; developmental projects</h3></div>
+        </div>
+        <div class="browse-controls">
+          <input type="search" id="projectSearch" class="search-input" placeholder="Search projects, sponsors, years…" aria-label="Search projects" />
+          <span class="result-count" id="projectCount"></span>
         </div>
         <div class="filter-row" id="projectFilters"></div>
         <div class="project-grid" id="projectGrid"></div>
+        <div class="load-more-row"><button type="button" class="more-btn" id="projectMore">Show more projects</button></div>
       </section>
 
       <section class="section impact-section" id="impact">
         <div class="section-heading">
           <div><p class="section-kicker">IMPACT</p><h3>From research to societal outcomes</h3></div>
-          <!-- <p>Selected scale indicators and contribution highlights from the supplied CV and contribution statement.</p> -->
         </div>
         <div class="impact-grid" id="impactGrid"></div>
+        <div class="training-strip" id="trainingStats"></div>
       </section>
 
       <section class="section" id="publications">
         <div class="section-heading">
-          <div><p class="section-kicker">KNOWLEDGE</p><h3>Selected publications & books</h3></div>
-          <!-- <p>The complete publication record remains in the supplied CV annex; this interface foregrounds recent and representative work.</p> -->
+          <div><p class="section-kicker">KNOWLEDGE</p><h3>Publications, books &amp; technical documents</h3></div>
         </div>
         <div class="publication-layout">
-          <div class="publication-list" id="publicationList"></div>
+          <div>
+            <div class="browse-controls">
+              <input type="search" id="pubSearch" class="search-input" placeholder="Search title, co-author, journal, year…" aria-label="Search publications" />
+              <span class="result-count" id="pubResultCount"></span>
+            </div>
+            <div class="filter-row" id="pubFilters"></div>
+            <div class="publication-list" id="publicationList"></div>
+            <div class="load-more-row"><button type="button" class="more-btn" id="pubMore">Show more publications</button></div>
+          </div>
           <aside class="publication-aside">
             <div class="aside-card">
               <span class="mini-label">KNOWLEDGE OUTPUT</span>
-              <strong id="pubCount">200+</strong>
-              <p>research publications and related knowledge outputs are reported in the supplied CV.</p>
+              <strong id="pubCount">—</strong>
+              <p>published papers, chapters, reports and related outputs in the publication record (excludes items under review).</p>
             </div>
             <div class="aside-card">
               <span class="mini-label">BOOKS</span>
-              <strong id="bookCount">20</strong>
-              <p>books and major authored/edited volumes are reported in the supplied CV.</p>
+              <strong id="bookCount">—</strong>
+              <p>books, guidebooks, compendia and edited volumes.</p>
             </div>
           </aside>
         </div>
@@ -140,7 +166,7 @@
       <section class="section split-section" id="awards">
         <div>
           <p class="section-kicker">RECOGNITION</p>
-          <h3>Awards & professional recognition</h3>
+          <h3>Awards &amp; professional recognition</h3>
           <div class="award-list" id="awardList"></div>
         </div>
         <div id="patentCard"></div>
@@ -148,7 +174,7 @@
 
       <section class="section" id="education">
         <div class="section-heading">
-          <div><p class="section-kicker">BACKGROUND</p><h3>Education & professional journey</h3></div>
+          <div><p class="section-kicker">BACKGROUND</p><h3>Education &amp; professional journey</h3></div>
         </div>
         <div class="timeline" id="timeline"></div>
       </section>
@@ -156,19 +182,19 @@
       <section class="contact-section" id="contact">
         <div>
           <p class="section-kicker">CONTACT</p>
-          <h3>Scientific collaboration, technical consultation & knowledge exchange.</h3>
+          <h3>Scientific collaboration, technical consultation &amp; knowledge exchange.</h3>
           <p id="contactSummary"></p>
         </div>
         <div class="contact-card" id="contactCard"></div>
       </section>
 
-      <footer class="footer">
-        <!-- <span>Designed as a neutral scientific portfolio platform.</span>
-        <span>Content source: supplied professional records.</span> -->
-      </footer>
+      <footer class="footer"></footer>
     </main>
   </div>
+
   <script src="data.js"></script>
+  <!-- NEW: optional link overrides – edit this file to add links later -->
+  <script src="links.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
