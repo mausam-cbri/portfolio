@@ -92,7 +92,7 @@ const PORTFOLIO = {
 
   sidebarStats: [
     { value: "30+", label: "years of R&D" },
-    { auto: "projects", label: "R&D, sponsored & developmental projects" },
+    { value: "150+", label: "R&D, sponsored & developmental projects" },
     { value: "60,000", label: "engineers & artisans trained" },
     { auto: "tech", label: "technologies transferred" }
   ],
@@ -656,7 +656,7 @@ const PORTFOLIO = {
     {"year": "2026", "type": "International Journal", "title": "Ultrasonic Acoustoelastic Coefficients for Stress Evaluation in Concrete Member Subjected to Flexural Loading", "venue": "Joshi, A, Jain, K, Chourasia, A, Panda, M, Russian Journal of Non-destructive Testing, (2026), ISSN 1061-8309, Vol. 62 (4), pp 452-464", "status": "", "link": "https://doi.org/10.1134/S1061830925605604"},
     {"year": "2026", "type": "Conference", "title": "Integrated Seismic Vulnerability and Portfolio Fragility Assessment of Masonry Buildings in the Indian Himalayan Region", "venue": "Chourasia A, R. Pradeep Kumar, 18th Symposium on Earthquake Engineering IIT Roorkee, Earthquake Engineering and Earthquake Disaster Mitigation, 10-12 December 2026, Roorkee", "status": "", "link": ""},
     {"year": "2026", "type": "Conference", "title": "Feasibility Assessment of Superelastic SMA Bars with Mechanical Anchorage in RC Beam-Column Joints", "venue": "Eswar M, Chourasia A, R. Pradeep Kumar, StructE NatCon 2026, 5–7 February 2026, Hyderabad", "status": "", "link": ""},
-    {"year": "2025", "type": "Book", "title": "Futuristic Trends in Structural Engineering", "venue": "(2025), Lecture notes in Civil Engineering, StructE NatCon-2024, Springer Publication", "status": "", "link": ""},
+    {"year": "2025", "type": "Book", "title": "Futuristic Trends in Structural Engineering", "venue": "(2025), Lecture notes in Civil Engineering, StructE NatCon-2024, Springer Publication", "status": "", "link": "https://doi.org/10.1007/978-981-96-9712-0"},
     {"year": "2025", "type": "Book", "title": "Rudraksha: A Guidebook for Disaster Resilient Construction for Uttarakhand (Residential Buildings)", "venue": "(2025), CSIR Central Building Research Institute", "status": "", "link": ""},
     {"year": "2025", "type": "Book", "title": "Glimpse of Indian Traditional Houses", "venue": "(2025), CSIR-Central Building Research Institute (CBRI), Roorkee", "status": "", "link": ""},
     {"year": "2025", "type": "Book", "title": "Climate Resilient Building Design Guidelines for High Altitude Regions", "venue": "(2025), CSIR-Central Building Research Institute (CBRI), Roorkee", "status": "", "link": ""},
