@@ -35,7 +35,7 @@ const PORTFOLIO = {
     phone: "+91 1332-283410 (office)",
     mobile: "+91 9897209050",
     profile: "Dr. Ajay Chourasia is a globally recognized leader in earthquake engineering and resilient infrastructure, with over three decades of contributions spanning research, technology innovation, national implementation and policy integration. His work brings together experimental engineering, advanced construction technologies and large-scale societal deployment.",
-    lead: "Research and innovation across earthquake engineering, resilient infrastructure, confined masonry, prefabricated construction, 3D Concrete Printing, structural health monitoring, seismic risk and climate-responsive buildings.",
+    lead: "Research and innovation in earthquake engineering, resilient infrastructure, confined masonry, prefabricated construction, 3D concrete printing, structural health monitoring, seismic risk assessment, and climate-responsive buildings.",
     specialization: [
       { title: "Earthquake Engineering & Seismic Risk Reduction", text: "Design, vulnerability assessment, retrofitting and post-disaster reconstruction." },
       { title: "Innovative Construction Technologies", text: "Confined masonry, precast systems and 3D Concrete Printing for deployment at scale." },
@@ -92,6 +92,9 @@ const PORTFOLIO = {
     {src:"assets/slides/library.jpg", label: "" },
     {src:"assets/slides/nepal1.png", label: "" },
     {src:"assets/slides/library1.jpg", label: "" },
+    {src:"assets/slides/pic42.jpeg", label:"" },
+    {src:"assets/slides/pic43.jpeg", label:"" },
+    {src:"assets/slides/pic44.jpeg", label:"" },
 
     //  {src:"assets/slides/onsite.png", label: "onsite team coordination" },
     // {src:"assets/slides/neetf.png", label: "National Earthquake Engineering Test Facility" }
